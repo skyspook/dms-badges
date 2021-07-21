@@ -1,0 +1,10 @@
+pydantic
+alembic
+fastapi
+python-dotenv
+uvicorn[standard]
+itsdangerous 
+Authlib
+httpx
+requests
+ldap3

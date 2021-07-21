@@ -1,0 +1,6 @@
+-r ./app/requirements.txt
+
+pytest
+pytest-xdist
+pytest-cov
+ipdb

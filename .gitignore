@@ -1,0 +1,9 @@
+.data
+.vscode
+.logs
+__pycache__
+.env
+id_rsa*
+.pytest*
+*.coverage
+coverage.xml

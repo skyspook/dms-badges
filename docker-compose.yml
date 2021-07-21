@@ -1,0 +1,39 @@
+version: '3'
+services: 
+    openldap:
+        extends:
+            file: ./dms-ad-openldap/docker-compose.yml
+            service: openldap
+            #container_name: openldap
+        networks:
+            main:
+                aliases:
+                    - openldap
+    phpldapadmin:
+        extends:
+            file: ./dms-ad-openldap/docker-compose.yml
+            service: phpldapadmin
+            #container_name: phpldapadmin
+        networks:
+            main:
+                aliases:
+                    - phpldapadmin
+        depends_on: 
+        - openldap
+    api:
+        build: app/.
+        ports:
+        - "8888:8000"
+        volumes:
+        - ./app:/usr/src/app
+        depends_on:
+        - openldap
+        networks:
+            main:
+                aliases:
+                    - api
+
+volumes:
+    web-data:
+networks:
+    main:
